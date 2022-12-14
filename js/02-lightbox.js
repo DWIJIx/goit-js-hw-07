@@ -15,22 +15,19 @@ ulContiner.insertAdjacentHTML('beforeend', imagesMarkup)
 
 const lightbox = new SimpleLightbox('.gallery a',
         { 
-            showCounter: false,
+            // showCounter: false,
             captionsData: 'alt',
             captionDelay: 250
-    });
+        });
 
 ulContiner.addEventListener('click', onUlContainerClick)
 
 function onUlContainerClick(evt) {
-      if (!evt.target.classList.contains('gallery__image')) {
+      if (!evt.target.nodeName === 'IMG') {
       return;
       }
     
-    evt.preventDefault();
-
-  
-    
+    evt.preventDefault();  
 }
 
 

@@ -22,11 +22,9 @@ divContiner.insertAdjacentHTML('afterbegin', imagesMarkup)
 
 divContiner.addEventListener('click', onDivContainerClick)
 
-
 function onDivContainerClick(evt) {
   
-  
-  if (!evt.target.classList.contains('gallery__image')) {
+  if (!evt.target.nodeName === 'IMG') {
       return;
   }
   
