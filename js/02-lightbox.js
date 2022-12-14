@@ -3,9 +3,9 @@ import { galleryItems } from './gallery-items.js';
 
 const ulContiner = document.querySelector('.gallery')
 
-const imgMarkup = galleryItem => 
-    `<a class="gallery__item" href="${galleryItem.original}">
-        <img class="gallery__image" src="${galleryItem.preview}" alt="${galleryItem.description}"/>
+const imgMarkup = ({preview, original, description}) => 
+    `<a class="gallery__item" href="${original}">
+        <img class="gallery__image" src="${preview}" alt="${description}"/>
     </a>
     `
 const imagesMarkup = galleryItems.map(imgMarkup).join('')
@@ -13,21 +13,24 @@ const imagesMarkup = galleryItems.map(imgMarkup).join('')
 
 ulContiner.insertAdjacentHTML('beforeend', imagesMarkup)
 
-ulContiner.addEventListener('click', onUlContainerClick)
-
-function onUlContainerClick(evt) {
-    evt.preventDefault()
-
-    if (!evt.target.classList.contains('gallery__image')) {
-      return;
-  }
-
-    var lightbox = new SimpleLightbox('.gallery a',
+const lightbox = new SimpleLightbox('.gallery a',
         { 
             showCounter: false,
             captionsData: 'alt',
             captionDelay: 250
     });
+
+ulContiner.addEventListener('click', onUlContainerClick)
+
+function onUlContainerClick(evt) {
+      if (!evt.target.classList.contains('gallery__image')) {
+      return;
+      }
+    
+    evt.preventDefault();
+
+  
+    
 }
 
 
