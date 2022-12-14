@@ -33,8 +33,31 @@ const imgMarkup = galleryItem =>
 
 const imagesMarkup = galleryItems.map(imgMarkup).join('')
 
-console.log(imagesMarkup)
+// console.log(imagesMarkup)
 
 const divContiner = document.querySelector('.gallery')
 
 divContiner.insertAdjacentHTML('afterbegin', imagesMarkup)
+
+divContiner.addEventListener('click', onDivContainerClick)
+
+
+
+function onDivContainerClick(evt) {
+
+    if (!evt.target.classList.contains('gallery__image')) {
+        return;
+    }
+    
+    evt.preventDefault()
+
+    console.log(evt.target.dataset.source)
+
+    const instance = basicLightbox.create(`
+    <img src="${evt.target.dataset.source}">
+`)
+
+instance.show()
+
+}
+
