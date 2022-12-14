@@ -20,8 +20,6 @@ const imagesMarkup = galleryItems.map(imgMarkup).join('')
 
 divContiner.insertAdjacentHTML('afterbegin', imagesMarkup)
 
-
-
 divContiner.addEventListener('click', onDivContainerClick)
 
 
@@ -53,7 +51,6 @@ function onDivContainerClick(evt) {
         window.removeEventListener('keydown', onEscButtonPress)
       }
    }
-  
   )
 
   instance.show()
@@ -61,12 +58,8 @@ function onDivContainerClick(evt) {
   function onEscButtonPress(e) {
    
     if (e.code === "Escape") {
-      // console.log(e)
       instance.close()
     } 
     
   }
-
-
 }
-
