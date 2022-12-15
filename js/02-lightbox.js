@@ -20,14 +20,3 @@ const lightbox = new SimpleLightbox('.gallery a',
             captionDelay: 250
         });
 
-ulContiner.addEventListener('click', onUlContainerClick)
-
-function onUlContainerClick(evt) {
-      if (!evt.target.nodeName === 'IMG') {
-      return;
-      }
-    
-    evt.preventDefault();  
-}
-
-
